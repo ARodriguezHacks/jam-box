@@ -5,11 +5,16 @@ const UserContext = createContext();
 export default UserContext;
 
 const UserProvider = ({ children }) => {
-  const [name, setName] = useState("Guest");
-  const [age, setAge] = useState("");
+  const [currentUser, setCurrentUser] = useState("Guest");
+
+  const updateUserName = (name) => {
+    setCurrentUser(name);
+  };
 
   return (
-    <UserContext.Provider value={{ name, age }}>
+    <UserContext.Provider
+      value={{ currentUser, setCurrentUser, updateUserName }}
+    >
       {children}
     </UserContext.Provider>
   );

@@ -1,14 +1,19 @@
 import { useContext } from "react";
 import UserContext from "./contexts/UserContext";
+import Header from "./components/Layout/Header";
+import Form from "./components/Form";
 
 function App() {
-  const user = useContext(UserContext);
+  const { currentUser } = useContext(UserContext);
 
+  console.log(currentUser);
   return (
-    <div>
+    <main>
+      <Header />
       <h1>Jam Box</h1>
-      <h2>Welcome {user.name}</h2>
-    </div>
+      <h2>Welcome {currentUser}!</h2>
+      <Form />
+    </main>
   );
 }
 
