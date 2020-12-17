@@ -9,6 +9,27 @@ html {
   margin: 0;
 }
 
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 70px auto 70px;
+  grid-template-areas:
+    "h h h h h h h h h h h h"
+    "c c c c c c c c c c c c"
+    "f f f f f f f f f f f f";
+}
+
 header {
+  grid-area: h;
   background: linear-gradient(to right, #ccffcc 0%, #00cc66 100%);
+}
+
+.content {
+  grid-area: c;
+  min-height: calc(100vh - 140px);
+}
+
+footer {
+  grid-area: f;
+  background: linear-gradient(#ccffcc 0%, #00cc66 100%);
 }
