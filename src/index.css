@@ -7,6 +7,7 @@ html {
 *:after {
   box-sizing: inherit;
   margin: 0;
+  padding: 0;
 }
 
 .container {
@@ -18,10 +19,27 @@ html {
     "c c c c c c c c c c c c"
     "f f f f f f f f f f f f";
 }
-
+/* Header */
 header {
   grid-area: h;
   background: linear-gradient(to right, #ccffcc 0%, #00cc66 100%);
+}
+
+header ul {
+  display: flex;
+  justify-content: center;
+  height: inherit;
+  align-items: center;
+}
+
+header ul li {
+  list-style: none;
+  padding: 1rem;
+}
+
+/* Nav */
+nav {
+  height: 70px;
 }
 
 .content {
