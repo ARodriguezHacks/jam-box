@@ -38,7 +38,7 @@ header ul li {
 }
 
 /* Nav */
-nav {
+header nav {
   height: 70px;
 }
 
@@ -50,4 +50,15 @@ nav {
 footer {
   grid-area: f;
   background: linear-gradient(#ccffcc 0%, #00cc66 100%);
+  text-align: center;
+}
+
+footer nav ul {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+footer nav ul li {
+  padding: 1rem;
 }
