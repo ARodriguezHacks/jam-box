@@ -1,18 +1,19 @@
-import { useContext } from "react";
-import UserContext from "./contexts/UserContext";
+import { Switch, Route } from "react-router-dom";
 import Header from "./components/Layout/Header";
 import Content from "./components/Layout/Content";
 import Footer from "./components/Layout/Footer";
-//import Form from "./components/Form";
+import Albums from "./components/Albums";
 
 function App() {
-  //const { currentUser } = useContext(UserContext);
-
-  //console.log(currentUser);
   return (
     <div className="container">
       <Header />
-      <Content />
+      <main className="content">
+        <Switch>
+          <Route exact path="/" component={Content} />
+          <Route path="/albums" component={Albums} />
+        </Switch>
+      </main>
       <Footer />
     </div>
   );

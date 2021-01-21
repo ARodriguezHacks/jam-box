@@ -1,11 +1,19 @@
+import { NavLink } from "react-router-dom";
+
 function Header() {
   return (
     <header>
       <nav>
         <ul>
-          <li>Jam Box Logo</li>
-          <li>Music</li>
-          <li>Shop</li>
+          <NavLink to="/">
+            <li>Jam Box Logo</li>
+          </NavLink>
+          <NavLink to="/albums">
+            <li>Albums</li>
+          </NavLink>
+          <NavLink to="/shop">
+            <li>Shop</li>
+          </NavLink>
         </ul>
       </nav>
     </header>
