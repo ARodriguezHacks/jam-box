@@ -11,7 +11,7 @@ function App() {
       <main className="content">
         <Switch>
           <Route exact path="/" component={Content} />
-          <Route path="/albums" component={Albums} />
+          <Route exact path="/albums" component={Albums} />
         </Switch>
       </main>
       <Footer />
