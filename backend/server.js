@@ -9,3 +9,7 @@ app.listen(5000, console.log("Server running on port 5000"));
 app.get("/", (req, res) => {
   res.send("Api is running");
 });
+
+app.get("/about", (req, res) => {
+  res.send("About Page is Showing");
+});
