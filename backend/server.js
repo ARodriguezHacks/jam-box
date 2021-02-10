@@ -4,6 +4,8 @@ import connectDatabase from "./config/db.js";
 import { songs } from "./data/music.js";
 
 dotenv.config();
+
+connectDatabase();
 // Initialize express
 const app = express();
 
@@ -21,8 +23,4 @@ app.get("/", (req, res) => {
 
 app.get("/api/songs", (req, res) => {
   res.send(songs);
-});
-
-app.get("/about", (req, res) => {
-  res.send("About Page is Showing");
 });
