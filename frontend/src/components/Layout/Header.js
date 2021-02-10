@@ -8,6 +8,9 @@ function Header() {
           <NavLink to="/">
             <li>Jam Box Logo</li>
           </NavLink>
+          <NavLink to="/search">
+            <li>Songs</li>
+          </NavLink>
           <NavLink to="/albums">
             <li>Albums</li>
           </NavLink>
