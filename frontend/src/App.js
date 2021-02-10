@@ -2,7 +2,8 @@ import { Switch, Route } from "react-router-dom";
 import Header from "./components/Layout/Header";
 import Content from "./components/Layout/Content";
 import Footer from "./components/Layout/Footer";
-import Albums from "./components/Albums";
+import About from "./pages/About";
+import Songs from "./pages/Songs";
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <main className="content">
         <Switch>
           <Route exact path="/" component={Content} />
-          <Route exact path="/albums" component={Albums} />
+          <Route exact path="/search" component={Songs} />
+          <Route exact path="/about" component={About} />
         </Switch>
       </main>
       <Footer />
