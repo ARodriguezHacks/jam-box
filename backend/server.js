@@ -1,26 +1,29 @@
 import express from "express";
 import dotenv from "dotenv";
 import connectDatabase from "./config/db.js";
-import { songs } from "./data/music.js";
+import songRoutes from "./routes/songRoutes.js";
+import userRoutes from "./routes/userRoutes.js";
 
 dotenv.config();
 
 connectDatabase();
+
 // Initialize express
 const app = express();
 
-const PORT = process.env.PORT || 5000;
+app.use(express.json());
 
-app.listen(
-  PORT,
-  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
-);
+const PORT = process.env.PORT || 5000;
 
 // Routes
 app.get("/", (req, res) => {
   res.send("Api is running");
 });
 
-app.get("/api/songs", (req, res) => {
-  res.send(songs);
-});
+app.use("/api/songs", songRoutes);
+app.use("/api/users", userRoutes);
+
+app.listen(
+  PORT,
+  console.log(`Server running in ${process.env.NODE_ENV} mode on port ${PORT}`)
+);
