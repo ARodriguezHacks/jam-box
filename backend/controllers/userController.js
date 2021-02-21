@@ -33,6 +33,52 @@ const authUser = async (req, res, next) => {
   }
 };
 
+// @desc    Register a new user
+// @route   POST /api/users
+// @access  Public
+
+const registerUser = async (req, res, next) => {
+  try {
+    const { name, email, password } = req.body;
+    try {
+      const userExists = await User.findOne({ email });
+
+      if (userExists) {
+        throw new Error("User already exists");
+      }
+
+      const user = await User.create({
+        name,
+        email,
+        password, // password will become encrypted before being saved. See userModel.js
+      });
+
+      if (user) {
+        res.status(201).json({
+          // 201 is a successful creation status
+          _id: user._id,
+          name: user.name,
+          email: user.email,
+          token: generateToken(user._id),
+        });
+      } else {
+        // res.status(400);
+        throw new Error("Invalid user data");
+      }
+    } catch (error) {
+      res.status(400);
+      // throw error;
+      res.json({
+        message: error.message,
+      });
+    }
+
+    // res.send(user);
+  } catch (err) {
+    next(err);
+  }
+};
+
 // @desc    Get user profile
 // @route   GET /api/users/profile
 // @access  Private
@@ -57,4 +103,4 @@ const getUserProfile = async (req, res, next) => {
   }
 };
 
-export { authUser, getUserProfile };
+export { authUser, getUserProfile, registerUser };
