@@ -14,8 +14,8 @@ function Header() {
           <NavLink to="/albums">
             <li>Albums</li>
           </NavLink>
-          <NavLink to="/shop">
-            <li>Shop</li>
+          <NavLink to="/log-in">
+            <li>Log In</li>
           </NavLink>
         </ul>
       </nav>

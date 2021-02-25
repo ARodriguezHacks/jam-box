@@ -1,4 +1,4 @@
-function Landing() {
+function About() {
   return (
     <>
       <h1>About Jam Box</h1>
@@ -7,4 +7,4 @@ function Landing() {
   );
 }
 
-export default Landing;
+export default About;

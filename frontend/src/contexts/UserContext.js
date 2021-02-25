@@ -1,6 +1,6 @@
 import { createContext, useState } from "react";
 
-// Create new context and call is UserContext
+// Create new context and call it UserContext
 const UserContext = createContext();
 
 // Export the new Context object to use it throughout the app

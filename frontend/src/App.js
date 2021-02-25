@@ -4,6 +4,7 @@ import Content from "./components/Layout/Content";
 import Footer from "./components/Layout/Footer";
 import About from "./pages/About";
 import Songs from "./pages/Songs";
+import LogIn from "./pages/LogIn";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route exact path="/" component={Content} />
           <Route exact path="/search" component={Songs} />
           <Route exact path="/about" component={About} />
+          <Route exact path="/log-in" component={LogIn} />
         </Switch>
       </main>
       <Footer />
