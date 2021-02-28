@@ -1,5 +1,4 @@
-import { useState, useEffect } from "react";
-import { UserContext } from "../contexts/UserContext";
+import { useState } from "react";
 import axios from "axios";
 
 function LogIn() {
@@ -8,12 +7,10 @@ function LogIn() {
 
   const changeEmail = (e) => {
     setEmail(e.target.value);
-    // console.log(email);
   };
 
   const changePassword = (e) => {
     setPassword(e.target.value);
-    // console.log(password);
   };
 
   const submitForm = (e) => {
@@ -25,22 +22,22 @@ function LogIn() {
         },
       };
       try {
-        await axios.post("/api/users/login", { email, password }, config);
+        const { data } = await axios.post(
+          "/api/users/login",
+          { email, password },
+          config
+        );
         console.log("Successful login!");
+        localStorage.setItem("user", JSON.stringify(data));
       } catch (error) {
         console.error(error.message);
       }
     };
 
     loginUser();
-    console.log(email, password);
     setEmail("");
     setPassword("");
   };
-
-  // useEffect(() => {
-
-  // })
 
   return (
     <>

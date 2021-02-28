@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 // Create new context and call it UserContext
 const UserContext = createContext();
@@ -11,9 +11,17 @@ export default UserContext;
 const UserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState("Guest");
 
-  const updateUserName = (name) => {
-    setCurrentUser(name);
+  const updateUserName = (data) => {
+    setCurrentUser(data.name);
   };
+
+  useEffect(() => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    console.log(user);
+    if (user) {
+      setCurrentUser(user.name);
+    }
+  }, [currentUser]);
 
   return (
     <UserContext.Provider
